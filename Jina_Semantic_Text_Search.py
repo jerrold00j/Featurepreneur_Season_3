@@ -7,6 +7,7 @@ from telegram.ext import Updater,  MessageHandler, Filters , CallbackContext
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+Token = "1431795622:AAHocJ5AKOzBBQ58cFfZZVvaSvua0qsmZHk"
 path = "D:\Python\Main_Project_Jina\Dictionary.csv"
 df = pd.read_csv(path)
 df = df.drop(columns=['POS' , 'Count'])
@@ -40,7 +41,7 @@ def Reply(update: Update, context: CallbackContext) -> None:
 
 
 def main() -> None:
-    updater = Updater("1431795622:AAHocJ5AKOzBBQ58cFfZZVvaSvua0qsmZHk")
+    updater = Updater(Token)
     dispatcher = updater.dispatcher
 
     dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, Reply))
